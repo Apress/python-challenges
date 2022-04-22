@@ -1,0 +1,35 @@
+# .coveragerc to control coverage.py
+[run]
+branch = True
+
+[report]
+omit = */intro/*
+       */utils/*
+       */auflage2/*
+       */Z_graphics/*
+       /venv/*
+
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Have to re-enable the standard pragma
+    pragma: no cover
+
+    # Don't complain about missing debug-only code:
+    def __repr__
+    if self\.debug
+
+    # exclude main from coverage
+    def main
+
+    # Don't complain if tests don't hit defensive assertion code:
+    raise AssertionError
+    raise NotImplementedError
+
+    # Don't complain if non-runnable code isn't run:
+    if 0:
+    if __name__ == .__main__.:
+
+ignore_errors = True
+
+[html]
+directory = coverage_html_report
